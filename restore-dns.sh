@@ -1,5 +1,4 @@
 #!/bin/bash
-sudo pfctl -d 2>&1
-sudo dscacheutil -flushcache
-sudo killall -HUP mDNSResponder 2>/dev/null
-echo "pf disabled, DNS back to normal"
+echo "=== Disabling pf rules ==="
+sudo pfctl -d 2>&1 | grep -v "ALTQ"
+echo "Done"
